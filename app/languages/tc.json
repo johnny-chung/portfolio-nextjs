@@ -1,0 +1,25 @@
+{
+  "packageLang": "tc",
+  "en": "英文",
+  "tc": "繁體",
+  "zh": "繁體",
+  "home": "首頁",
+  "aboutMe": "關於我",
+  "aboutMeDesc": "一窺我的旅程、技能以及驅動我工作的熱情。",
+  "detailDesc": "FullStack開發人員，專精於網頁與行動應用程式、微服務及雲端（AWS）。擅長 React、Next.js、React Native、Docker/Kubernetes 及 CI/CD。我提供端對端解決方案，設計可擴展的架構，並將想法轉化為具影響力的產品。",
+  "myProjects": "我的專案",
+  "blog": "部落格",
+  "contact": "聯絡我",
+  "latestProjects": "最新專案",
+  "viewMyProjects": "查看我的專案",
+  "viewProjectsDesc": "探索我最新的設計與開發成果，從概念到實現的完整旅程。",
+  "seeLatestProjects": "查看最新專案",
+  "viewPostsDesc": "深入了解我在設計、程式開發與創意過程中的分享與見解。",
+  "viewAllProjects": "查看所有專案",
+  "seeLatestPosts": "查看最新文章",
+  "viewAllPosts": "查看所有文章",
+
+  "goodman": "Goodman",
+  "subTitle": "將想法化為影響力",
+  "slogan": "設計 · 編程 · 創造"
+}

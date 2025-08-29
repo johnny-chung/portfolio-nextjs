@@ -1,0 +1,26 @@
+{
+  "packageLang": "en",
+  "en": "English",
+  "tc": "Traditional Chinese",
+  "zh": "Traditional Chinese",
+
+  "home": "Home",
+  "aboutMe": "About Me",
+  "aboutMeDesc": "A glimpse into my journey, skills, and the passion that drives my work.",
+  "detailDesc": "Full-Stack Software Developer with expertise in web & mobile apps, microservices, and cloud (AWS). Skilled in React, Next.js, React Native, Docker/Kubernetes, and CI/CD. I deliver end-to-end solutions, design scalable architectures, and turn ideas into impactful products.",
+  "myProjects": "My Projects",
+  "blog": "Blog",
+  "contact": "Contact",
+  "viewMyProjects": "View My Projects",
+  "viewProjectsDesc": "Explore a showcase of my latest design and development work, from concept to execution.",
+  "latestProjects": "Latest Projects",
+  "seeLatestProjects": "See Latest Projects",
+  "viewAllProjects": "View All Projects",
+  "seeLatestPosts": "See Latest Posts",
+  "viewPostsDesc": "Dive into insights, tutorials, and thoughts I share on design, coding, and the creative process.",
+  "viewAllPosts": "View All Posts",
+
+  "goodman": "Goodman",
+  "subTitle": "Crafting Ideas Into Impact",
+  "slogan": "Design · Code · Deliver"
+}
