@@ -1,39 +1,27 @@
-// pages/bookcrossing.tsx
+// pages/inventory-mgt.tsx
 import Link from "next/link";
 import React from "react";
 import { Button } from "@/app/_components/ui/button";
 import { projects } from "@/app/_modules/projects/project-list";
 import Image from "next/image";
 
-const githubUrlFront = "https://github.com/johnny-chung/bookcrossing-nextjs"; // TODO: update
-const githubUrlBack = "https://github.com/johnny-chung/book-crossing-services"; // TODO: update
-const liveUrl = "https://bookcrossing.goodmanisltd.com"; // TODO: update
+const liveUrl = "https://invmgt.dashboard.eliesoft.com/"; // TODO: update
 
-export default function BookCrossingContent() {
-  const projectDetail = projects.find((p) => p.id === 9);
+export default function InventoryMgtContent() {
+  const projectDetail = projects.find((p) => p.id === 8);
   return (
     <div className="px-4 py-8">
       <div className="mx-auto max-w-[980px]">
         {/* Hero */}
         <header className="mb-8">
           <h1 className="text-3xl font-semibold tracking-tight">
-            BookCrossing
+            Inventory Management Platform
           </h1>
           <p className="mt-2 text-muted-foreground">
-            A multilingual book exchange platform with secure auth, scalable
-            microservices, and a polished web UI.
+            A cross-platform inventory and operations suite with a Next.js web
+            app, an Expo mobile app, and cost-efficient AWS infrastructure.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Button asChild>
-              <Link href={githubUrlFront} target="_blank" rel="noreferrer">
-                GitHub for FrontEnd
-              </Link>
-            </Button>
-            <Button asChild>
-              <Link href={githubUrlBack} target="_blank" rel="noreferrer">
-                GitHub for BackEnd
-              </Link>
-            </Button>
             <Button asChild variant="outline">
               <Link href={liveUrl} target="_blank" rel="noreferrer">
                 Visit Website
@@ -41,30 +29,27 @@ export default function BookCrossingContent() {
             </Button>
           </div>
         </header>
-
         {/* Intro */}
         <section className="my-8">
           <h2 className="mb-3 text-xl font-semibold">Introduction</h2>
           <p className="leading-relaxed text-foreground/90">
-            BookCrossing enables readers to discover, list, and exchange books
-            across languages. It offers multilingual search, CRUD listings, and
-            secure, role-based access to streamline the exchange process.
+            This project delivers a unified platform for inventory and field
+            operations. It features a web application built with Next.js for
+            server-rendered performance and an Expo-powered mobile app for
+            on-the-go workflows. On-demand data synchronization keeps views fast
+            and fresh, while an AWS-based architecture provides elasticity and
+            cost control.
           </p>
         </section>
 
-        {/* Business Goals / Logic */}
+        {/* Business Goals */}
         <section className="my-8">
           <h2 className="mb-3 text-xl font-semibold">Business Goals</h2>
           <ul className="list-disc space-y-1 pl-5 leading-relaxed">
-            <li>Grow a trusted community for book exchange and discovery.</li>
-            <li>
-              Support multilingual search to broaden reach and accessibility.
-            </li>
-            <li>
-              Ensure secure authentication and role-based access to reduce
-              misuse.
-            </li>
-            <li>Scale efficiently with resilient, observable microservices.</li>
+            <li>Reduce manual tracking and data-entry overhead.</li>
+            <li>Deliver fast, reliable web and mobile user experiences.</li>
+            <li>Scale efficiently with pay-for-what-you-use services.</li>
+            <li>Translate business needs into shipped features quickly.</li>
           </ul>
         </section>
 
@@ -72,11 +57,11 @@ export default function BookCrossingContent() {
         <section className="my-8">
           <h2 className="mb-3 text-xl font-semibold">Feature Specification</h2>
           <ul className="list-disc space-y-1 pl-5 leading-relaxed">
-            <li>Multilingual search over titles, authors, and tags.</li>
-            <li>CRUD for book listings (create, read, update, delete).</li>
-            <li>User profiles and role-based permissions via Auth0.</li>
-            <li>Messaging and orders for exchanges between members.</li>
-            <li>Event-driven backend with Kafka for decoupled services.</li>
+            <li>Cross-platform mobile app using Expo (iOS/Android).</li>
+            <li>Next.js web app leveraging SSR for performance and SEO.</li>
+            <li>On-demand data synchronization to refresh critical views.</li>
+            <li>Role-based access and secure authentication.</li>
+            <li>Operational dashboards for visibility and control.</li>
           </ul>
         </section>
 
@@ -84,24 +69,21 @@ export default function BookCrossingContent() {
         <section className="my-8">
           <h2 className="mb-3 text-xl font-semibold">Architecture</h2>
           <p className="leading-relaxed text-foreground/90">
-            The frontend uses Next.js and MongoDB for dynamic, SEO-friendly
-            pages and data. Backend services are Spring Boot microservices
-            communicating via Kafka. Containerized with Docker, orchestrated
-            locally with Skaffold, and deployed with Helm charts.
+            The web frontend uses Next.js with SSR to deliver fast initial loads
+            and improved SEO. The mobile app is built with Expo to streamline
+            cross-platform delivery. Backend services run in Docker containers
+            on AWS ECS for core, always-on systems, while intermittent workloads
+            are migrated to AWS Lambda behind API Gateway for elasticity and
+            cost savings. On-demand revalidation and synchronization patterns
+            keep data fresh without over-fetching.
           </p>
           <ul className="mt-2 list-disc space-y-1 pl-5 leading-relaxed">
-            <li>Frontend: Next.js (React), REST/GraphQL (as applicable)</li>
-            <li>
-              Backend: Spring Boot microservices (book, member, order, post,
-              message)
-            </li>
-            <li>Async: Kafka topics for events and inter-service messaging</li>
-            <li>
-              Data: MongoDB (primary), plus service-local data stores if needed
-            </li>
-            <li>Orchestration: Docker, Skaffold (dev), Helm (deploy)</li>
-            <li>Auth: Auth0 with role-based access control</li>
-            <li>Infra: Self-hosted on Ubuntu via Docker + Helm</li>
+            <li>Frontend (Web): Next.js with SSR</li>
+            <li>Mobile: Expo (React Native)</li>
+            <li>Core Services: Dockerized workloads on AWS ECS</li>
+            <li>Intermittent Jobs: AWS Lambda + API Gateway</li>
+            <li>Sync: On-demand data synchronization and revalidation</li>
+            <li>Infra: AWS-first, cost-optimized architecture</li>
           </ul>
         </section>
 
@@ -112,14 +94,12 @@ export default function BookCrossingContent() {
             <TechPill label="Next.js" />
             <TechPill label="React" />
             <TechPill label="TypeScript" />
-            <TechPill label="MongoDB" />
-            <TechPill label="Spring Boot" />
-            <TechPill label="Apache Kafka" />
+            <TechPill label="Expo" />
+            <TechPill label="React Native" />
             <TechPill label="Docker" />
-            <TechPill label="Skaffold" />
-            <TechPill label="Helm" />
-            <TechPill label="Auth0" />
-            <TechPill label="Ubuntu" />
+            <TechPill label="AWS ECS" />
+            <TechPill label="AWS Lambda" />
+            <TechPill label="API Gateway" />
           </div>
         </section>
 
@@ -150,9 +130,10 @@ export default function BookCrossingContent() {
           {/* TODO: Replace the iframe src with your video URL (YouTube/Vimeo) */}
           <div className="relative overflow-hidden rounded-lg bg-black pt-[56.25%]">
             <iframe
-              src="https://www.youtube-nocookie.com/embed/XcLpKe9QoZI"
-              title="BookCrossing Demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src="https://www.youtube-nocookie.com/embed/7Ryx4r6SVgk"
+              title="Inventory Platform Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
               className="absolute inset-0 h-full w-full border-0"
             />
@@ -164,13 +145,26 @@ export default function BookCrossingContent() {
           <h2 className="mb-3 text-xl font-semibold">Achievements</h2>
           <ul className="list-disc space-y-1 pl-5 leading-relaxed">
             <li>
-              Scaled microservices via Docker, Skaffold, Helm to improve
-              resilience.
+              Launched a cross-platform mobile application (Expo), reducing
+              manual tracking by 40% through automation.
             </li>
-            <li>Reduced unauthorized access with Auth0 and RBAC.</li>
-            <li>Self-hosted on Ubuntu for cost efficiency and full control.</li>
             <li>
-              Delivered multilingual search and end-to-end CRUD for listings.
+              Built a Next.js web application leveraging SSR and on-demand data
+              synchronization to improve performance.
+            </li>
+            <li>
+              Suggested and implemented architecture improvements: deployed core
+              services in Docker on AWS ECS and migrated intermittent jobs to
+              AWS Lambda + API Gateway for scalability and cost savings.
+            </li>
+            <li>
+              Optimized backend architecture by consolidating services into an
+              ECS cluster, cutting operational costs by nearly 60%.
+            </li>
+            <li>
+              Managed client interactions as a 3-person freelance team,
+              translating requirements into features and ensuring rapid delivery
+              and support.
             </li>
           </ul>
         </section>

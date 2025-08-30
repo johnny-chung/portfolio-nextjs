@@ -3,6 +3,7 @@ import { LangType } from "@/app/languages/_lang.types";
 import { getLanguage } from "@/app/languages/_getLanguage";
 import FadingBGImg from "@/app/_components/features/home/FadingBGImg";
 import HomeCards from "@/app/_components/features/home/HomeCards";
+import HomeProjectsCarousel from "@/app/_components/features/home/HomeProjectsCarousel";
 
 export default async function Home({
   params,
@@ -12,7 +13,7 @@ export default async function Home({
   const { lang } = await params;
   const langPack = await getLanguage(lang);
   return (
-    <div className="relative isolate bg-gray-100">
+    <div className="relative isolate bg-gray-100 w-full ">
       <FadingBGImg />
 
       <section className="h-[120vh] flex flex-col mx-auto text-center items-center justify-center px-2 max-w-5xl md:px-4 lg:px-8">
@@ -30,9 +31,7 @@ export default async function Home({
       </section>
 
       <section className="bg-gray-100 text-black w-full py-20 mb-10 px-2 md:px-4 lg:px-8">
-        <div className="flex flex-col max-w-5xl mx-auto items-center justify-center text-center">
-          Home
-        </div>
+        <HomeProjectsCarousel />
         {/* <div className="mt-2 md:mt-6 flex items-center justify-center gap-x-6">
           <Link
             href="mailto:920software@gmail.com"

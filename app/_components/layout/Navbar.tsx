@@ -57,7 +57,7 @@ const navMenuContent: {
   {
     title: "home",
     href: "/",
-    components: [{ title: "about-me", href: "/about-me", description: "" }],
+    components: [{ title: "aboutMe", href: "/about-me", description: "" }],
   },
   {
     title: "myProjects",
@@ -137,7 +137,7 @@ function NavBarWeb({ langPack }: { langPack: any }) {
                         <p className="text-muted-foreground text-sm leading-tight">
                           {langPack.subTitle}
                         </p>
-                      </Link>
+                      </Link>                    
                     </NavigationMenuLink>
                   </li>
                   {mainMenu.components.map((subMenu, idx) => (

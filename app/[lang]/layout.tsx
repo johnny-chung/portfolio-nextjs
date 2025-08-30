@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/app/_providers/LangProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SidebarProvider } from "@/app/_components/ui/sidebar";
 import Navbar from "../_components/layout/Navbar";
+import Footer from "../_components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,22 +33,25 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: LangType }>;
+  params: Promise<{ lang: string }>;
 }>) {
   const { lang } = await params;
-  const langPack = await getLanguage(lang);
+  const langPack = await getLanguage(lang as LangType);
   return (
     <html lang={(await params).lang}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <LanguageProvider lang={lang} langPack={langPack}>
+        <LanguageProvider lang={lang as LangType} langPack={langPack}>
           <SidebarProvider defaultOpen={false}>
             <Navbar />
-            <main className="w-full mx-auto mt-12 md:mt-16">
-              {children}
-              <SpeedInsights />
-            </main>
+            <div className="flex flex-col w-full">
+              <main className="flex flex-1 w-full min-h-screen mt-12 md:mt-16">
+                {children}
+                <SpeedInsights />
+              </main>
+              <Footer />
+            </div>
           </SidebarProvider>
         </LanguageProvider>
       </body>
