@@ -144,7 +144,7 @@ export default function AboutMeContent() {
   const name = "Johnny C."; // Update if needed
   const title = "Full-Stack Software Developer • Chartered Engineer (UK)";
   const email = "johnny.chung2046@gmail.com"; // e.g. "johnny@example.com"
-  const linkedin = "www.linkedin.com/in/johnny-wychung "; // e.g. "https://www.linkedin.com/in/your-handle/"
+  const linkedin = "https://www.linkedin.com/in/johnny-wychung "; // e.g. "https://www.linkedin.com/in/your-handle/"
   const { langPack } = useLang();
 
   return (
@@ -167,7 +167,11 @@ export default function AboutMeContent() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-3">
-              <Button asChild variant="outline" className="transition-transform hover:-translate-y-0.5">
+              <Button
+                asChild
+                variant="outline"
+                className="transition-transform hover:-translate-y-0.5"
+              >
                 <a
                   href={linkedin || "#"}
                   target={linkedin ? "_blank" : undefined}
@@ -178,7 +182,10 @@ export default function AboutMeContent() {
                   LinkedIn
                 </a>
               </Button>
-              <Button asChild className="transition-transform hover:-translate-y-0.5">
+              <Button
+                asChild
+                className="transition-transform hover:-translate-y-0.5"
+              >
                 <a
                   href={email ? `mailto:${email}` : "#"}
                   aria-disabled={!email}
@@ -231,7 +238,11 @@ function TechGroup({
   return (
     <Card
       className="transition-all hover:shadow-md hover:-translate-y-0.5 animate-fadeIn"
-      style={delay ? { animationDelay: `${delay}ms`, animationFillMode: "backwards" } : undefined}
+      style={
+        delay
+          ? { animationDelay: `${delay}ms`, animationFillMode: "backwards" }
+          : undefined
+      }
     >
       <CardHeader className="border-b border-border/60">
         <CardTitle className="text-lg">{title}</CardTitle>
