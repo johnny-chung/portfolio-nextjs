@@ -6,4 +6,8 @@ const languages = {
   tc: () => import("@/app/languages/tc.json").then((module) => module.default),
 };
 
-export const getLanguage = async (locale: LangType) => languages[locale]();
+export const getLanguage = async (locale: LangType) => {
+  const pack = await languages[locale]();
+
+  return pack;
+};

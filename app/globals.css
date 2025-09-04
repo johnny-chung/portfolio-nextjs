@@ -179,3 +179,37 @@
 .animate-slideFadeIn-slow {
   animation: slideFadeIn 1.5s ease-in-out; /* Adjust the duration (0.5s) as needed */
 }
+
+@keyframes enlarge {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-enlarge {
+  animation: enlarge 0.2s ease-in;
+}
+
+.animate-card-enlarge {
+  animation: enlarge 0.2s ease-in;
+  animation-fill-mode: forwards;
+}
+
+/* Marquee left-to-right for tech stack */
+@keyframes marquee-ltr {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 60s linear infinite;
+}
+
+/* Fade edges via CSS mask (opacity fade) */
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+}

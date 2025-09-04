@@ -60,6 +60,17 @@ const navMenuContent: {
     components: [{ title: "aboutMe", href: "/about-me", description: "" }],
   },
   {
+    title: "goodmanDev",
+    href: "/goodman-dev",
+    components: [
+      {
+        title: "softwareDevelopment",
+        href: "/goodman-dev",
+        description: "goodmanDevDesc",
+      },
+    ],
+  },
+  {
     title: "myProjects",
     href: "/my-projects",
     components: [
@@ -137,7 +148,7 @@ function NavBarWeb({ langPack }: { langPack: any }) {
                         <p className="text-muted-foreground text-sm leading-tight">
                           {langPack.subTitle}
                         </p>
-                      </Link>                    
+                      </Link>
                     </NavigationMenuLink>
                   </li>
                   {mainMenu.components.map((subMenu, idx) => (

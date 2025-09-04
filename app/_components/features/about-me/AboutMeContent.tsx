@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -15,130 +17,26 @@ import {
 import { Button } from "@/app/_components/ui/button";
 import { Separator } from "@/app/_components/ui/separator";
 import { useLang } from "@/app/_providers/LangProvider";
-import { Mail, Linkedin } from "lucide-react";
-
-type Tech = {
-  label: string;
-  color: string;
-  logo: string;
-  logoColor?: string;
-};
-
-function shieldsUrl({ label, color, logo, logoColor }: Tech) {
-  const base = `https://img.shields.io/badge/${encodeURIComponent(
-    label
-  )}-${color}`;
-  const params = new URLSearchParams({
-    logo,
-    style: "for-the-badge",
-    ...(logoColor ? { logoColor } : {}),
-  });
-  return `${base}?${params.toString()}`;
-}
-
-const PROGRAMMING: Tech[] = [
-  { label: "C", color: "A8B9CC", logo: "c", logoColor: "black" },
-  { label: "C++", color: "00599C", logo: "cplusplus", logoColor: "white" },
-  { label: "Java", color: "007396", logo: "openjdk", logoColor: "white" },
-  {
-    label: "JavaScript",
-    color: "F7DF1E",
-    logo: "javascript",
-    logoColor: "black",
-  },
-  {
-    label: "TypeScript",
-    color: "3178C6",
-    logo: "typescript",
-    logoColor: "white",
-  },
-  { label: "Python", color: "3776AB", logo: "python", logoColor: "white" },
-];
-
-const FRONTEND: Tech[] = [
-  { label: "React", color: "61DAFB", logo: "react", logoColor: "black" },
-  { label: "Next.js", color: "000000", logo: "nextdotjs", logoColor: "white" },
-  { label: "React Native", color: "61DAFB", logo: "react", logoColor: "black" },
-  { label: "Expo", color: "000020", logo: "expo", logoColor: "white" },
-  { label: "Redux", color: "764ABC", logo: "redux", logoColor: "white" },
-  {
-    label: "Zustand",
-    color: "18181B",
-    logo: "three-dot-js",
-    logoColor: "white",
-  },
-  {
-    label: "TailwindCSS",
-    color: "06B6D4",
-    logo: "tailwindcss",
-    logoColor: "white",
-  },
-  { label: "MUI", color: "007FFF", logo: "mui", logoColor: "white" },
-  { label: "shadcn/ui", color: "000000", logo: "shadcnui", logoColor: "white" },
-  { label: "D3.js", color: "F9A03C", logo: "d3dotjs", logoColor: "white" },
-];
-
-const BACKEND: Tech[] = [
-  {
-    label: "Spring Boot",
-    color: "6DB33F",
-    logo: "springboot",
-    logoColor: "white",
-  },
-  { label: "Node.js", color: "339933", logo: "nodedotjs", logoColor: "white" },
-  { label: "Express", color: "000000", logo: "express", logoColor: "white" },
-  { label: "Flask", color: "000000", logo: "flask", logoColor: "white" },
-  { label: "Auth0", color: "EB5424", logo: "auth0", logoColor: "white" },
-  {
-    label: "RESTful APIs",
-    color: "0052CC",
-    logo: "swagger",
-    logoColor: "white",
-  },
-];
-
-const DEVOPS: Tech[] = [
-  { label: "Docker", color: "2496ED", logo: "docker", logoColor: "white" },
-  {
-    label: "Kubernetes",
-    color: "326CE5",
-    logo: "kubernetes",
-    logoColor: "white",
-  },
-  { label: "Skaffold", color: "18A999", logo: "skaffold", logoColor: "white" },
-  { label: "Helm", color: "0F1689", logo: "helm", logoColor: "white" },
-  { label: "Kafka", color: "231F20", logo: "apachekafka", logoColor: "white" },
-  { label: "NATS", color: "27AAE1", logo: "natsdotio", logoColor: "white" },
-  {
-    label: "GitHub Actions",
-    color: "2088FF",
-    logo: "githubactions",
-    logoColor: "white",
-  },
-];
-
-const DATABASES: Tech[] = [
-  { label: "Oracle", color: "F80000", logo: "oracle", logoColor: "white" },
-  {
-    label: "PostgreSQL",
-    color: "4169E1",
-    logo: "postgresql",
-    logoColor: "white",
-  },
-  { label: "MongoDB", color: "47A248", logo: "mongodb", logoColor: "white" },
-  { label: "Redis", color: "DC382D", logo: "redis", logoColor: "white" },
-  { label: "Firebase", color: "FFCA28", logo: "firebase", logoColor: "black" },
-];
-
-const CLOUD: Tech[] = [
-  { label: "AWS", color: "232F3E", logo: "amazonaws", logoColor: "FF9900" },
-  {
-    label: "Azure",
-    color: "0078D4",
-    logo: "microsoftazure",
-    logoColor: "white",
-  },
-];
+import { Mail } from "lucide-react";
+import {
+  Code,
+  ShieldCheck,
+  Smartphone,
+  Palette,
+  Server,
+  Languages,
+} from "lucide-react";
+import {
+  BACKEND,
+  CLOUD,
+  DATABASES,
+  DEVOPS,
+  FRONTEND,
+  PROGRAMMING,
+  shieldsUrl,
+  type Tech,
+} from "@/app/_data/tech-stack";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function AboutMeContent() {
   const name = "Johnny C."; // Update if needed
@@ -172,15 +70,16 @@ export default function AboutMeContent() {
                 variant="outline"
                 className="transition-transform hover:-translate-y-0.5"
               >
-                <a
+                <Link
                   href={linkedin || "#"}
                   target={linkedin ? "_blank" : undefined}
                   rel="noreferrer"
                   aria-disabled={!linkedin}
+                  className="flex items-center gap-2"
                 >
-                  <Linkedin className="mr-2 size-4" />
+                  <FaLinkedin />
                   LinkedIn
-                </a>
+                </Link>
               </Button>
               <Button
                 asChild
@@ -211,8 +110,67 @@ export default function AboutMeContent() {
 
       <Separator />
 
+      {/* Expertise Section */}
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Tech Stack</h2>
+        <h2 className="text-2xl font-semibold text-center">
+          {langPack.myExpertise}
+        </h2>
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              icon: <Code className="text-blue-500" />,
+              title: langPack.softwareDev,
+              desc: langPack.aboutMeSoftwareDevDesc,
+            },
+            {
+              icon: <ShieldCheck className="text-green-500" />,
+              title: langPack.QualityControl,
+              desc: langPack.aboutMeQualityControlDesc,
+            },
+            {
+              icon: <Smartphone className="text-pink-500" />,
+              title: langPack.WebMoblileApp,
+              desc: langPack.aboutMeWebMobileAppDesc,
+            },
+            {
+              icon: <Palette className="text-yellow-500" />,
+              title: langPack.UIUXDesign,
+              desc: langPack.aboutMeUIUXDesignDesc,
+            },
+            {
+              icon: <Server className="text-purple-500" />,
+              title: langPack.Infrastructure,
+              desc: langPack.aboutMeInfrastructureDesc,
+            },
+            {
+              icon: <Languages className="text-red-500" />,
+              title: langPack.MultilingualDev,
+              desc: langPack.aboutMeMultilingualDevDesc,
+            },
+          ].map((item, i) => (
+            <Card
+              key={i}
+              className="animate-slideFadeIn transition-transform duration-200 transform-gpu hover:shadow-lg hover:scale-[1.02]"
+              style={{ animationDelay: `${80 + i * 40}ms` }}
+            >
+              <CardHeader className="flex flex-row items-center gap-4">
+                {item.icon}
+                <CardTitle>{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>{item.desc}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <Separator />
+
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-center">
+          {langPack.techStack}
+        </h2>
         <div className="space-y-4">
           <TechGroup title="Programming" items={PROGRAMMING} delay={80} />
           <TechGroup title="Frontend" items={FRONTEND} delay={120} />
@@ -250,14 +208,20 @@ function TechGroup({
       <CardContent>
         <div className="flex flex-wrap gap-2">
           {items.map((t) => (
-            <img
+            <div
               key={t.label}
-              src={shieldsUrl(t)}
-              alt={t.label}
-              className="h-7 md:h-8 select-none rounded-md transition-all duration-200 ease-out hover:scale-[1.03] hover:-translate-y-0.5 saturate-[.85] hover:saturate-100 drop-shadow-sm hover:drop-shadow-md"
-              loading="lazy"
-              decoding="async"
-            />
+              className="relative h-10 w-auto min-w-[60px] aspect-[3/1] flex items-center"
+            >
+              <Image
+                src={shieldsUrl(t)}
+                alt={t.label}
+                fill
+                unoptimized
+                className="object-contain select-none rounded-md transition-all duration-200 ease-out hover:scale-[1.03] hover:-translate-y-0.5 saturate-[.85] hover:saturate-100 drop-shadow-sm hover:drop-shadow-md"
+                loading="lazy"
+                draggable={false}
+              />
+            </div>
           ))}
         </div>
       </CardContent>
