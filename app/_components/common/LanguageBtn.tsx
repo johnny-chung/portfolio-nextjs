@@ -19,6 +19,7 @@ export default function LanguageBtn() {
   const router = useRouter();
 
   function changeLanguage(newLang: string) {
+    document.cookie = `locale=${newLang}; path=/; max-age=31536000`; // 1 year
     router.replace(`/${newLang}`);
   }
 

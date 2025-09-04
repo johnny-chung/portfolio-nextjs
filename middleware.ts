@@ -32,7 +32,7 @@ export async function middleware(request: NextRequest) {
   // get locale from cookie
   const cookieLocale = request.cookies.get("locale")?.value;
 
-  // const cleanPathname = removeLocaleFromPathname(pathname); // Remove locale before checking
+  const cleanPathname = removeLocaleFromPathname(pathname); // Remove locale before checking
 
   //   //redirect to sign in if not authorized
   //   const session = await auth();
@@ -47,7 +47,7 @@ export async function middleware(request: NextRequest) {
 
   if (currentLocale) return NextResponse.next();
 
-  request.nextUrl.pathname = `/${cookieLocale ?? defaultLocale}${pathname}`;
+  request.nextUrl.pathname = `/${currentLocale ?? cookieLocale ?? defaultLocale}${cleanPathname}`;
   // e.g. incoming request is /products
   // The new URL is now /en/products
 
