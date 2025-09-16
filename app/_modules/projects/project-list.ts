@@ -92,6 +92,7 @@ export const projects: ProjectType[] = [
   {
     id: 6,
     title: "Virtual Library Web App",
+    href: "/my-projects/lib-app",
     description:
       "A virtual library that mirrors real‑world borrowing: browse, reserve, and manage books with secure authentication. MERN stack with a TypeScript React frontend, Express API, and Auth0 integration, hosted on Firebase.",
     github: "https://github.com/Marjorieccc/LibraLounge",
@@ -103,6 +104,7 @@ export const projects: ProjectType[] = [
       "Express.js",
       "MongoDB",
       "Auth0",
+      "Firebase",
     ],
     images: [
       "https://res.cloudinary.com/dp2anoz4i/image/upload/v1713803590/portfolio/lib-3_zdr150.jpg",
@@ -114,6 +116,7 @@ export const projects: ProjectType[] = [
   {
     id: 5,
     title: "Reversi Game",
+    href: "/my-projects/reversi-app",
     description:
       "An AI‑assisted Reversi game with a Flask backend serving a trained PyTorch model and a React frontend. Deployed on AWS with Docker, Nginx, and Gunicorn, using CloudFront and Route53 for scalability.",
     github: "https://github.com/johnny-chung/Reversi_Web_App_Backend",
@@ -183,9 +186,9 @@ export const projects: ProjectType[] = [
   },
   {
     id: 1,
-    title: "Portfolio Webapp",
+    title: "Portfolio Webapp (Previous Version with React)",
     description:
-      "A personal portfolio built with React and TypeScript using MUI and Tailwind. CI/CD publishes to AWS S3 via GitHub Actions.",
+      "A sample personal portfolio built with React and TypeScript using MUI and Tailwind. CI/CD publishes to AWS S3 via GitHub Actions.",
     skills: ["React", "Tailwind CSS", "MUI", "Typescript"],
     images: [
       "https://res.cloudinary.com/dp2anoz4i/image/upload/v1713804065/portfolio/portfolio_vmbgdu.jpg",
